@@ -1,0 +1,13 @@
+# Persisted HDFS data (never commit cluster state)
+volumes/
+
+# Local deliverable outputs
+ls_exercice.txt
+fsck_clients.txt
+livrable_sorties.txt
+export/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
