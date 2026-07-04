@@ -1,0 +1,21 @@
+# Persisted HDFS data (never commit cluster state)
+volumes/
+
+# Python virtual environment
+.venv/
+__pycache__/
+*.pyc
+
+# Local streaming run artifacts (checkpoints, Parquet output) when testing with --local
+tp-pyspark-streaming-capteurs/checkpoints/
+tp-pyspark-streaming-capteurs/output/
+
+# Spark local runtime junk
+metastore_db/
+derby.log
+spark-warehouse/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
