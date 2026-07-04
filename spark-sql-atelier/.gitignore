@@ -1,0 +1,17 @@
+# Maven build output
+target/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Spark local runtime junk
+metastore_db/
+derby.log
+spark-warehouse/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
