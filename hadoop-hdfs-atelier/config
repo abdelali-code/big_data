@@ -1,0 +1,6 @@
+HADOOP_HOME=/opt/hadoop
+CORE-SITE.XML_fs.defaultFS=hdfs://namenode:8020
+HDFS-SITE.XML_dfs.namenode.rpc-address=namenode:8020
+HDFS-SITE.XML_dfs.replication=3
+HDFS-SITE.XML_dfs.blocksize=134217728
+HDFS-SITE.XML_dfs.webhdfs.enabled=true
