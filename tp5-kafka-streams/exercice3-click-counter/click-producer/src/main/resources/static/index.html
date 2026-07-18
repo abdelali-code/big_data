@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>TP5 - Producteur de clics</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 80px; }
+        input { padding: 8px; font-size: 16px; }
+        button {
+            padding: 14px 28px;
+            font-size: 18px;
+            margin-top: 20px;
+            cursor: pointer;
+            background-color: #2b6cb0;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+        button:active { background-color: #1a4971; }
+        #status { margin-top: 20px; color: #2f855a; font-weight: bold; }
+        #counter { margin-top: 10px; color: #555; }
+    </style>
+</head>
+<body>
+    <h1>TP5 - Exercice 3 : Comptage de clics</h1>
+
+    <div>
+        <label for="userId">Utilisateur : </label>
+        <input type="text" id="userId" value="user1">
+    </div>
+
+    <button id="clickBtn">Cliquez ici</button>
+
+    <div id="status"></div>
+    <div id="counter">Clics envoyés dans cette session : <span id="localCount">0</span></div>
+
+    <script>
+        let localCount = 0;
+        document.getElementById('clickBtn').addEventListener('click', async () => {
+            const userId = document.getElementById('userId').value || 'user1';
+            const statusEl = document.getElementById('status');
+            try {
+                const response = await fetch('/api/click', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ userId })
+                });
+                if (response.ok) {
+                    localCount++;
+                    document.getElementById('localCount').textContent = localCount;
+                    statusEl.textContent = 'Clic envoyé pour ' + userId;
+                } else {
+                    statusEl.textContent = 'Erreur lors de l\'envoi du clic';
+                }
+            } catch (e) {
+                statusEl.textContent = 'Erreur réseau: ' + e.message;
+            }
+        });
+    </script>
+</body>
+</html>

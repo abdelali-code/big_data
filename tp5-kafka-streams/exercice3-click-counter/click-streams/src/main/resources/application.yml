@@ -1,0 +1,21 @@
+server:
+  port: -1
+
+spring:
+  application:
+    name: click-streams
+  main:
+    web-application-type: none
+  kafka:
+    bootstrap-servers: localhost:9092
+    streams:
+      application-id: click-streams-app
+      properties:
+        default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        default.value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        commit.interval.ms: 1000
+
+app:
+  topics:
+    clicks: clicks
+    click-counts: click-counts

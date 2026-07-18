@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: text-cleaning-streams
+  kafka:
+    bootstrap-servers: localhost:9092
+    streams:
+      application-id: text-cleaning-app
+      properties:
+        default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        default.value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        commit.interval.ms: 1000
+
+app:
+  topics:
+    input: text-input
+    clean: text-clean
+    dead-letter: text-dead-letter
+
+logging:
+  level:
+    ma.enset.textcleaning: INFO

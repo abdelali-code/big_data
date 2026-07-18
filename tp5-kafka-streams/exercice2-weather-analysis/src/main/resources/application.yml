@@ -1,0 +1,24 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: weather-analysis-streams
+  kafka:
+    bootstrap-servers: localhost:9092
+    streams:
+      application-id: weather-analysis-app
+      properties:
+        default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        default.value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        commit.interval.ms: 1000
+
+app:
+  topics:
+    input: weather-data
+    output: station-averages
+  temperature-threshold-celsius: 30.0
+
+logging:
+  level:
+    ma.enset.weather: INFO

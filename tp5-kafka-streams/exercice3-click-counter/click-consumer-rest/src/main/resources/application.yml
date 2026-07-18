@@ -1,0 +1,17 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: click-consumer-rest
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: click-consumer-rest
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+app:
+  topics:
+    click-counts: click-counts
